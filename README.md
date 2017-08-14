@@ -37,4 +37,5 @@ basta con importar el archivo de especificación en el cliente y agregar en el h
 
 > **Nota:**
 > - Hay ejemplos de uso en el wiki de este repositorio https://github.com/formiiklabs/apis/wiki
+> - Todas las APIs son asíncronas, y constan de 2 métodos uno para indicar el recurso a ser procesado y otro para revisar el estatus de la operacion y/o resultado.
 
