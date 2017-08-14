@@ -10,11 +10,12 @@ Ingresar al portal de desarrollador y crear una cuenta
 https://formiiklabs.portal.azure-api.net
 
 Es necesario suscribirse al producto formiiklabs_preview eso se hace en el tab Products en el portal.
-Una vez realizada la suscripción, en la sección PROFILE se muestran las llaves de acceso a la API.
 
 <img src="https://formiiklabsapi1964.blob.core.windows.net/formiiklabssamples/tab_productos.png" width="300">
 <img src="https://formiiklabsapi1964.blob.core.windows.net/formiiklabssamples/suscripcion.png" width="300">
 <img src="https://formiiklabsapi1964.blob.core.windows.net/formiiklabssamples/confirmacion.png" width="300">
+
+Una vez realizada la suscripción, en la sección PROFILE se muestran las llaves de acceso a la API.
 <img src="https://formiiklabsapi1964.blob.core.windows.net/formiiklabssamples/llaves.png" width="300">
 
 
