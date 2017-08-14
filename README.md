@@ -33,3 +33,8 @@ Los archivos estan creados siguiendo la especificación OpenAPI 2.0 por lo que e
 
 Para consumir las API se puede utilizar un cliente de APIs Rest como https://restlet.com/modules/client/ 
 basta con importar el archivo de especificación en el cliente y agregar en el header **Ocp-Apim-Subscription-Key** nuestra llave de suscripción.
+
+
+> **Nota:**
+> - Hay ejemplos de uso en el wiki de este repositorio https://github.com/formiiklabs/apis/wiki
+
