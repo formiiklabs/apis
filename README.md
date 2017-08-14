@@ -23,3 +23,12 @@ Una vez realizada la suscripción, en la sección PROFILE se muestran las llaves
 > - Se envía un correo electrónico de confirmación, es necesario dar click en el link para continuar con el proceso.
 >  - En algunas ocasiones el correo electrónico se envía a la carpeta de spam.
 >  - Este preview tiene un limite de llamadas de 10 llamadas por minuto y maximo 100 llamadas por mes.
+
+
+**2. Consumir la API**
+Para consumir cualquiera de las APIs, es necesario descargar de este repositorio el archivo con la especificación de la API que se quiera probar, dichos archivos tienen la siguiente nomenclatura "formiiklabs_NOMBREAPI_azureapi.json" siendo **NOMBREAPI** el nombre del API a probar
+
+Los archivos estan creados siguiendo la especificación OpenAPI 2.0 por lo que es necesario utilizar un visor de esa especificación para revisar la documentacion de cada API. Por ejemplo https://restlet.com/modules/studio/
+
+Para consumir las API se puede utilizar un cliente de APIs Rest como https://restlet.com/modules/client/ 
+basta con importar el archivo de especificación en el cliente y agregar en el header **Ocp-Apim-Subscription-Key** nuestra llave de suscripción.
