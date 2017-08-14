@@ -1,8 +1,12 @@
 FormiikLabs APIs
 ===================
 
- 1. Obtener una llave de prueba
+Para poder utilizar los servicios de formiikLabs es necesario realizar las siguientes operaciones
+
+**1. Obtener una llave de prueba**
+
 Ingresar al portal de desarrollador y crear una cuenta
+
 https://formiiklabs.portal.azure-api.net
 
 Es necesario suscribirse al producto formiiklabs_preview eso se hace en el tab Products en el portal.
