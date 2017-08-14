@@ -9,6 +9,7 @@ Es necesario suscribirse al producto formiiklabs_preview eso se hace en el tab P
 
 Una vez realizada la suscripción, en la sección PROFILE se muestran las llaves de acceso a la API.
 
+<img src="https://formiiklabsapi1964.blob.core.windows.net/formiiklabssamples/tab_productos.png" width="200">
 ![Suscribirse en el tab PRODUCTS](https://formiiklabsapi1964.blob.core.windows.net/formiiklabssamples/tab_productos.png =250x )
 
 ![Suscribirse](https://formiiklabsapi1964.blob.core.windows.net/formiiklabssamples/suscripcion.png =250x)
