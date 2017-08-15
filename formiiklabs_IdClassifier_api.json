@@ -1,0 +1,155 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "API de clasificación de documentos de identificación oficiales mexicanos, mediante el envío de una imagen el servicio es capaz de determinar si es un IFE o un PASAPORTE",
+    "version" : "1.0.0",
+    "title" : "IdClassifier",
+    "contact" : { }
+  },
+  "host" : "formiiklabs.azure-api.net",
+  "basePath" : "/IdClassifier",
+  "schemes" : [ "https" ],
+  "consumes" : [ "application/json" ],
+  "produces" : [ "application/json" ],
+  "security" : [ {
+    "apiKeyHeader" : [ ]
+  } ],
+  "paths" : {
+    "/status_result" : {
+      "post" : {
+        "summary" : "Se envía la información para consulta del resultado",
+        "description" : "Se envía la información para consulta del resultado",
+        "consumes" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "Ocp-Apim-Subscription-Key",
+          "in" : "header",
+          "required" : true,
+          "type" : "string",
+          "description" : "Llave de la suscripción"
+        }, {
+          "name" : "body",
+          "in" : "body",
+          "required" : true,
+          "schema" : {
+            "type" : "object",
+            "required" : [ "uuid" ],
+            "properties" : {
+              "uuid" : {
+                "type" : "string",
+                "description" : "Identificador de la operación"
+              }
+            }
+          },
+          "x-examples" : {
+            "application/json" : "{\"uuid\": \"dac64b0c-3052-4903-86cf-35c36e02ba72\"}"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "type" : "object",
+              "properties" : {
+                "status" : {
+                  "type" : "string",
+                  "description" : "Estado de la operacion"
+                },
+                "uudi" : {
+                  "type" : "string",
+                  "description" : "Identificador de la operación"
+                },
+                "type" : {
+                  "type" : "string",
+                  "description" : "Tipo de documento identificado"
+                },
+                "score" : {
+                  "type" : "number",
+                  "description" : "Confiabilidad"
+                }
+              }
+            },
+            "examples" : {
+              "application/json" : "{\"status\": \"finished\", \"uudi\": \"dac64b0c-3052-4903-86cf-35c36e02ba72\", \"type\": \"pasaporte\", \"score\": 0.8551403880119324, \"filename\": \"dac64b0c-3052-4903-86cf-35c36e02ba72__IMG_20170718_121105.jpg\"}"
+            }
+          }
+        }
+      }
+    },
+    "/id_classifier_downloadphoto" : {
+      "post" : {
+        "summary" : "Se envía el documento a clasificar mediante una url",
+        "consumes" : [ ],
+        "parameters" : [ {
+          "name" : "Ocp-Apim-Subscription-Key",
+          "in" : "header",
+          "required" : true,
+          "type" : "string",
+          "description" : "Llave de la suscripción"
+        }, {
+          "name" : "body",
+          "in" : "body",
+          "required" : true,
+          "schema" : {
+            "type" : "object",
+            "required" : [ "url" ],
+            "properties" : {
+              "url" : {
+                "type" : "string",
+                "description" : "Url de la imagen a clasificar"
+              }
+            }
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "type" : "object",
+              "properties" : {
+                "status" : {
+                  "type" : "string",
+                  "description" : "Estado de la operación"
+                },
+                "uuid" : {
+                  "type" : "string",
+                  "description" : "Identificador unico de la operación"
+                },
+                "filename" : {
+                  "type" : "string",
+                  "description" : "Nombre del archivo procesado"
+                }
+              }
+            },
+            "examples" : {
+              "application/json" : "{\"status\": \"queued\", \"uuid\": \"3e664e6c-d142-4ebe-b05d-cb3d5f345ca8\", \"filename\": \"3e664e6c-d142-4ebe-b05d-cb3d5f345ca8__IMG_20170718_123823.jpg\"}\n"
+            }
+          },
+          "412" : {
+            "description" : "Status 412",
+            "schema" : {
+              "type" : "object",
+              "properties" : {
+                "response" : {
+                  "type" : "string",
+                  "description" : "Mensaje con el error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions" : {
+    "apiKeyHeader" : {
+      "type" : "apiKey",
+      "name" : "Ocp-Apim-Subscription-Key",
+      "in" : "header"
+    },
+    "apiKeyQuery" : {
+      "type" : "apiKey",
+      "name" : "subscription-key",
+      "in" : "header"
+    }
+  }
+}
