@@ -27,7 +27,7 @@ Una vez realizada la suscripción, en la sección PROFILE se muestran las llaves
 
 **2. Consumir la API**
 
-Para consumir cualquiera de las APIs, es necesario descargar de este repositorio el archivo con la especificación de la API que se quiera probar, dichos archivos tienen la siguiente nomenclatura "formiiklabs_NOMBREAPI_azureapi.json" siendo **NOMBREAPI** el nombre del API a probar
+Para consumir cualquiera de las APIs, es necesario descargar de este repositorio el archivo con la especificación de la API que se quiera probar, dichos archivos tienen la siguiente nomenclatura "formiiklabs_NOMBREAPI_api.json" siendo **NOMBREAPI** el nombre del API a probar
 
 Los archivos estan creados siguiendo la especificación OpenAPI 2.0 por lo que es necesario utilizar un visor de esa especificación para revisar la documentacion de cada API. Por ejemplo https://restlet.com/modules/studio/
 
