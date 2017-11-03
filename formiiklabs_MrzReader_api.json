@@ -1,0 +1,198 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "MrzReader",
+        "version": "1.0",
+        "description": "API para identificación y lectura de Zona de Lectura Mecánica (mrz)"
+    },
+    "host": "formiiklabs.azure-api.net",
+    "basePath": "/MrzReader",
+    "schemes": [
+        "https"
+    ],
+    "securityDefinitions": {
+        "apiKeyHeader": {
+            "type": "apiKey",
+            "name": "Ocp-Apim-Subscription-Key",
+            "in": "header"
+        },
+        "apiKeyQuery": {
+            "type": "apiKey",
+            "name": "subscription-key",
+            "in": "query"
+        }
+    },
+    "security": [
+        {
+            "apiKeyHeader": []
+        },
+        {
+            "apiKeyQuery": []
+        }
+    ],
+    "paths": {
+        "/status_result_mrzreader": {
+            "post": {
+                "description": "Se envía la información para consulta del resultado",
+                "operationId": "/status_result - POST",
+                "parameters": [
+                    {
+                        "name": "Ocp-Apim-Subscription-Key",
+                        "in": "header",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/Body"
+                        }
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Status 200"
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ]
+            }
+        },
+        "/mrzreader_downloadphoto": {
+            "post": {
+                "description": "Se envía el documento a clasificar mediante una url",
+                "operationId": "/mrzreader_downloadphoto - POST",
+                "parameters": [
+                    {
+                        "name": "Ocp-Apim-Subscription-Key",
+                        "in": "header",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/Body"
+                        }
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Status 200"
+                    },
+                    "412": {
+                        "description": "Status 412"
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ]
+            }
+        }
+    },
+    "definitions": {
+        "Body": {
+            "type": "object",
+            "required": [
+                "uuid"
+            ],
+            "properties": {
+                "uuid": {
+                    "type": "string",
+                    "description": "Identificador de la operación"
+                }
+            }
+        },
+        "Status_resultPost200ApplicationJsonResponse": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "type": "string",
+                    "description": "Estado de la operacion"
+                },
+                "uudi": {
+                    "type": "string",
+                    "description": "Identificador de la operación"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Tipo de documento identificado"
+                },
+                "score": {
+                    "type": "number",
+                    "description": "Confiabilidad"
+                }
+            }
+        },
+        "Id_classifier_uploadphotoPost200ApplicationJsonResponse": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "type": "string",
+                    "description": "Estado de la operación"
+                },
+                "uuid": {
+                    "type": "string",
+                    "description": "Identificador de la operación"
+                },
+                "filename": {
+                    "type": "string",
+                    "description": "Nombre del archivo a procesar"
+                }
+            }
+        },
+        "Id_classifier_uploadphotoPost400ApplicationJsonResponse": {
+            "type": "object",
+            "properties": {
+                "response": {
+                    "type": "string",
+                    "description": "Mensaje descriptivo del error"
+                }
+            }
+        },
+        "Id_classifier_uploadphotoPost412ApplicationJsonResponse": {
+            "type": "object",
+            "properties": {
+                "response": {
+                    "type": "string",
+                    "description": "Mensaje informativo del error"
+                }
+            }
+        },
+        "Id_classifier_downloadphotoPost200ApplicationJsonResponse": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "type": "string",
+                    "description": "Estado de la operación"
+                },
+                "uuid": {
+                    "type": "string",
+                    "description": "Identificador unico de la operación"
+                },
+                "filename": {
+                    "type": "string",
+                    "description": "Nombre del archivo procesado"
+                }
+            }
+        },
+        "Id_classifier_downloadphotoPost412ApplicationJsonResponse": {
+            "type": "object",
+            "properties": {
+                "response": {
+                    "type": "string",
+                    "description": "Mensaje con el error"
+                }
+            }
+        }
+    }
+}
